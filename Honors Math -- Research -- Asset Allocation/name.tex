@@ -1,0 +1,22 @@
+Since $\bm{r}|\bm{q}$ is normal, $-\lambda\bm{h}^\top \bm{r}|\bm{q}$ is normal as well, then
+\begin{align*}
+\bm{w}^*&=\operatorname{argmax}_{\bm{w}}\left\{\mathbb{E}\left[-e^{\lambda\left(-\mathbb{E}\left[\bm{w}^{\top} \boldsymbol{r}|\bm{q}\right]+\frac{\lambda}{2} \mathbb{V}\left[\bm{w}^{\top} \boldsymbol{r}|\bm{q}\right]\right)}\right]\right\}\\
+\lambda>0\Longrightarrow
+&\equiv\operatorname{argmax}_{\bm{h}}\left\{\mathbb{E}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right]-\frac{\lambda}{2} \mathbb{V}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right]\right\}
+\end{align*}
+To solve this, we first compute $\mathbb{E}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right]$ and $\mathbb{V}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right]$ where we have
+\[
+\mathbb{E}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right] = \bm{h}^{\top}\mathbb{E}\left[ \boldsymbol{r}|\bm{q}\right] = \bm{h}^{\top}(\mathbf{P}\mathbf{\Omega}^{-1}\mathbf{P}+\mathbf{C}^{-1})^{-1}(\mathbf{P}^\top \mathbf{\Omega}^{-1}\bm{q}+\mathbf{C}^{-1}\bm{\pi}  ) 
+\]
+and 
+\begin{align*}
+\mathbb{V}\left[\bm{h}^{\top} \boldsymbol{r}|\bm{q}\right] &= \EE\left[(\bm{h}^{\top} \boldsymbol{r}|\bm{q}-\EE[\bm{h}^{\top} \boldsymbol{r}|\bm{q}])(\bm{h}^{\top} \boldsymbol{r}|\bm{q}-\EE[\bm{h}^{\top} \boldsymbol{r}|\bm{q})^\top\right]\\
+&=\EE\left[\bm{h}^{\top}( \boldsymbol{r}|\bm{q}-\EE[ \boldsymbol{r}|\bm{q}])( \boldsymbol{r}|\bm{q}-\EE[ \boldsymbol{r}|\bm{q})^\top\bm{h}\right]\\
+&=\bm{h}^{\top}\EE\left[( \boldsymbol{r}|\bm{q}-\EE[ \boldsymbol{r}|\bm{q}])( \boldsymbol{r}|\bm{q}-\EE[ \boldsymbol{r}|\bm{q})^\top\right]\bm{h}\\
+&=\bm{h}^{\top}\VV\left[ \boldsymbol{r}|\bm{q}\right]\bm{h}\\
+&=\bm{h}^{\top}\left[(\mathbf{P}\mathbf{\Omega}^{-1}\mathbf{P}+\mathbf{C}^{-1})^{-1}+\mathbf{\Sigma}\right]\bm{h}
+\end{align*}
+From \cref{prob:The Risk Aversion Formulation}, we get that the optimal portfolio is then given by
+$$
+\bm{h}^*=\lambda^{-1}\left[(\mathbf{P}\mathbf{\Omega}^{-1}\mathbf{P}+\mathbf{C}^{-1})^{-1}+\mathbf{\Sigma}\right]^{-1} (\mathbf{P}\mathbf{\Omega}^{-1}\mathbf{P}+\mathbf{C}^{-1})^{-1}(\mathbf{P}^\top \mathbf{\Omega}^{-1}\bm{q}+\mathbf{C}^{-1}\bm{\pi}  ) 
+$$
